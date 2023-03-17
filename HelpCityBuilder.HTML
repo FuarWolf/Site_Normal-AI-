@@ -1,0 +1,955 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpmMe</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="faviconH/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="faviconH/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="faviconH/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="styleH.css" type="text/css">
+</head>
+<body>
+
+    <a href="#" onclick="location.reload(); return false;">
+        Обновить страницу
+    </a>
+
+    <h2>
+        Дефолт
+    </h2>
+    <p>
+        Подключение css файла &#60;link rel="stylesheet" href="style.css" type="text/css"> <br>
+        doc структура сайта в VS Code <br>
+        &#60;link rel="stylesheet" type="text/css" href="reset.css"> это reset стилей!!! сам <a href="reset.css" download="">ФАЙЛ</a> <br>
+        <a href="https://htmlbase.ru/css/display" class="Alarm"> Это display!!!</a>
+    </p>
+    
+    <div class="iconWeb">
+        <h2>
+            Как сделать иконку сайта в самой вкладке браузера. (Favicon)
+        </h2>
+        <ol>
+            <li>
+                Подготовка изорбажения, идем на <a href="https://www.erase.bg/ru" target="_blank">ERASE</a>, перетаскиваем изображение и скачиваем. (Убрать фон)
+                
+            </li>
+            <li>
+                Переходим на сайт <a href="https://favicon.io/favicon-converter/" target="_blank">Favicon</a>. Пихаем всё в конвентер и нажимаем Download. (Favicon сам)
+            </li>
+            <li>
+                Вот это копируем в head после title. <br>
+                <pre class="favicon">
+                    <code class="fav">
+                        &#60;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <br>
+                        &#60;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> <br>
+                        &#60;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> <br>
+                        &#60;link rel="manifest" href="/site.webmanifest">
+                    </code>
+                </pre>
+            </li>            
+            <li>
+                Распаковываем архив в корень проекта, а если в отдельную папку то дописываем в какую у href в head.
+            </li>
+        </ol>
+    </div>
+
+    <div class="header">
+        <h2>
+            Оглавление сайта
+        </h2>
+        <ol>
+            <li>
+                Создаем структуру оглавления:
+                <pre class="headerPRE">
+                    <p class="OBVODKA">
+                        <code class="headerCOD">
+                            &#60;header class="header"> <br>
+                                &#60;div class="container"> <br>
+                                    &#60;div class="header__wrapped"> &#60;!-- задает структуру --> <br>
+                                        &#60;div class="header__block"> <br>
+                                            &#60;a href="#" class="header__logo"> <br>
+                                                &#60;img src="image/logo.png" alt=""> <br>
+                                            &#60;/a> <br>
+                                        &#60;/div> <br>
+                                        &#60;!-- header_block --> <br>
+                        
+                                        &#60;nav class="nav"> &#60;!-- панель навигации --> <br>
+                                            &#60;a href="#" class="nav__link active">main&#60;/a> <br>
+                                            &#60;a href="#" class="nav__link">sd(ai)&#60;/a> <br>
+                                            &#60;a href="#" class="nav__link">game&#60;/a> <br>
+                                            &#60;a href="#" class="nav__link">about&#60;/a> <br>
+                                            &#60;a href="#" class="nav__link">contacts&#60;/a> <br>
+                                        &#60;/nav> <br> 
+                                        &#60;div class="header__block"> <br>
+                                            &#60;div class="header__lng"> <br>
+                                                &#60;a href="#" class="header__lng-link">ru&#60;/a> <br>
+                                                &#60;a href="#" class="header__lng-link active">en&#60;/a> <br>
+                                            &#60;/div> <br>
+                                        &#60;/div> <br>        
+                                    &#60;/div> <br>
+                                    &#60;!-- header__wrapped --> <br>
+                                &#60;/div> <br>
+                                &#60;!-- container --> <br>
+                            &#60;/header> <br>
+                        </code>
+                    </p>
+                </pre>
+
+            </li>
+            <li>
+                Идём в css и разместим объекты в оглавлении:
+                <pre>
+                    <p class="OBVODKA">
+                        .header__wrapped {
+                            height: 120px;
+                            align-items: center;
+                            display: flex; /* все эл поровну разделят пространмтво где они находятся */
+                            justify-content: space-between; /*чтобы эл разъехались по сторонам*/
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Уменьшим логотип:
+                <pre>
+                    <p class="OBVODKA">
+                        .header__logo img {
+                            height: 120px;
+                            width: 120px;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Настроим структуру общую структуру head, т.е навигацию лого и что-то ещё
+                <pre>
+                    <p class="OBVODKA">
+                        .header {
+                            width: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            z-index: 3; /* приоритет отрисовки */
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Настройка содержимого container для всего сайта.
+                <pre>
+                    <p class="OBVODKA">
+                        .container {
+                            width: 1200px;
+                            margin: 0 auto;
+                        }
+                    </p>
+                </pre>
+                После этого оглавление принимает человеческий вид.
+            </li>
+            <li>
+                <p class="Alarm">Важно!!!</p> 
+                Это делаем почти всегда:
+                <pre>
+                    <p class="OBVODKA">
+                        *, *:before, *:after {
+                            box-sizing: border-box;
+                        }
+                        
+                        html {
+                            margin: 0;
+                            padding: 0;
+                        }
+                        
+                        h1,h2,h3,h4,h5,h6 { /* убираем оступ у заголовков, defoult они есть */
+                            margin: 0;
+                        }
+
+                        .body {
+                            margin: 0; /* отступ от всех 4 сторон */
+                            padding: 0;
+                            font-family: "Poppins", sans-serif;
+                            font-size: 15px;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Это для оглавления и лого:
+                <pre>
+                    <p class="OBVODKA">
+                        .header__block { /* чтобы крайние эл не мешали навигации */
+                            width: 20%;
+                        }
+                        
+                        .header__logo {
+                            display: inline-block;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Связь между эл. навигации:
+                <pre>
+                    <p class="OBVODKA">
+                        .nav {
+                            display: flex;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Улучшение навигации:
+                <pre>
+                    <p class="OBVODKA">
+                        .nav__link {
+                            margin-right: 35px; /* отступы между эл, но посл эл тоже делает отступ !!!*/
+                            color: black;
+                            text-transform: uppercase; /* магия с текстом, делает все буквы большими */
+                            text-decoration: none; /* убирает подчеркивания */
+                            font-weight: 600;
+                            position: relative; /* !подчеркивание для всех ссылок! */
+                        }
+                        
+                        .nav__link:last-child { /* убирает отступ справа, из предю пункта*/
+                            margin-right: 0;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Подчеркивания ON при наведении:
+                <pre>
+                    <p class="OBVODKA">
+                        .nav__link:after {
+                            width: 100%;
+                            height: 2px;
+                            background-color: white;
+                            position: absolute;
+                            top: 100%;
+                            left: 0; /* от края до края */
+                            content: '';
+                            opacity: 0; /* !убираем подчерк всех ссылок! */
+                            transition: opacity .2s ease; /* время подчеркивания */
+                        }
+
+                        .nav__link:hover:after { /* при наведении */
+                            opacity: 1;
+                        }
+                        
+                        .nav__link.active:after { /* актив подчеркивается */
+                            opacity: 1;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Интро сайта:
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;section class="intro">
+                        &#60;div class="container">
+                            &#60;div class="intro__content">
+                                &#60;div class="intro__block">
+                                    &#60;h1 class="intro__title">Получи эмоции от передовых технологий и игр&#60;/h1>
+                
+                                    &#60;a href="#" class="btn">Show more&#60;/a>
+                                &#60;/div>
+                            &#60;/div>
+                        &#60;/div>
+                    &#60;/section>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Фон:
+                <pre>
+                    <p class="OBVODKA">
+                        .intro {
+                            background: url('image/introAI.jpg') no-repeat; /* !!!!!!растягивать фон !!!!*/
+                            background-size: cover;
+                            position: relative;
+                        }
+                    </p>
+                </pre>
+                <p class="Alarm">Но фон будет только на оглавлении!!!</p>
+            </li>
+            <li>
+                Фиксим:
+                <pre>
+                    <p class="OBVODKA">
+                        .intro__content {
+                            height: 1024px;
+                            display: flex;
+                            align-items: center;
+                            z-index: 2; /* приоритет отрисовки */
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Оформление заголовка:
+                <pre>
+                    <p class="OBVODKA">
+                        .intro__title {
+                            max-width: 690px;
+                            color: white;
+                            font-size: 48px;
+                            font-weight: 700;
+                            line-height: 1.5;
+                            padding-bottom: 30px;
+                        } 
+                    </p>
+                </pre>
+                <p class="Alarm">
+                    z-index: 3; надо в .head добавить, иначе оглавление видно не будет!
+                </p>
+
+            </li>
+            <li>
+                Языки в оглавлении (НЕ ВАЖНО):
+                <pre>
+                    <p class="OBVODKA">
+                        .header__lng { /* для всего блока */
+                            display: flex;
+                            justify-content: flex-end; /* по горизонтали справа */
+                        }
+                        
+                        .header__lng-link { /* для ссылок в нем */
+                            margin-right: 8px;
+                            color: #B7B7B7;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            transition: color .2s ease;
+                        }
+                        
+                        .header__lng-link:hover {
+                            color: white;
+                        }
+                        
+                        .header__lng-link:last-child {
+                            margin-right: 0;
+                        }
+                        
+                        .header__lng-link.active {
+                            color: white;
+                            text-decoration: double;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Далее Info в HTML:
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;section class="info">
+                        &#60;div class="container">
+                            &#60;div class="info__wrapper">
+                                &#60;div class="info__block">  / один блок, можно дублировать далее, меняя картинки и текст
+                                    &#60;div class="info__item">
+                                        &#60;div class="info__img">
+                                            &#60;img src="image/tel.jpg" alt="">
+                                        &#60;/div>
+                                        &#60;h3 class="info__title">
+                                            call us now 222-222-222
+                                        &#60;/h3>
+                                        &#60;p class="info__text">
+                                            Fell free to call os
+                                        &#60;/p>
+                                    &#60;/div>
+                                &#60;/div> / до сюда
+                                &#60;!-- info__block -->
+                            &#60;/div>
+                            &#60;!-- inf0__wrapper -->
+                        &#60;/div>
+                        &#60;!-- container -->
+                    &#60;/section>
+                    </p>
+                </pre>
+                Вот ЭТО копируем:
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;div class="info__block">  / один блок, можно дублировать далее, меняя картинки и текст
+                            &#60;div class="info__item">
+                                &#60;div class="info__img">
+                                    &#60;img src="image/tel.jpg" alt="">
+                                &#60;/div>
+                                &#60;h3 class="info__title">
+                                    call us now 222-222-222
+                                &#60;/h3>
+                                &#60;p class="info__text">
+                                    Fell free to call os
+                                &#60;/p>
+                            &#60;/div>
+                        &#60;/div> / до сюда
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Настроим кнопку "Show more":
+                <pre>
+                    <p class="OBVODKA">
+                        .btn {
+                            display: inline-flex; /* все ссылки inline это строчный а это говно */
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            text-decoration: none;
+                            font-size: 18px;
+                            font-weight: 500;
+                            background-color: #DB2512;
+                            min-width: 200px;
+                            height: 50px;
+                            padding: 0 10px; /* 0 отступ вврех, низ 10 лево, право */
+                            transition: background-color .2s easy;
+                        }
+                        
+                        .btn:hover {
+                            background-color: #c72e1d; /* бледнеет при наведении*/
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Настроим info в css:
+                <pre>
+                    <p class="OBVODKA">
+                        .info {
+
+                        }
+                        
+                        .info__wrapper {
+                            display: flex;
+                            margin: 0 -10px;
+                        
+                        }
+                        
+                        .info__block {
+                            width: 33.33%;
+                            padding: 0 10px; /* padding И margin должны совпадать!!!*/
+                        
+                        }
+                        
+                        .info__item { /* обводка */
+                            background-color: #fff;
+                            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); /* тень блока */
+                            padding: 40px 40px 30px;
+                        }
+                        
+                        .info__img { 
+                            margin-bottom: 20px; /* отступ снизу, т.е до нижних эл */
+                        }
+                        
+                        .info__img img { /* к самому изобр*/
+                            height: 30px;
+                        }
+                        
+                        .info__title { /* заголовок */
+                            text-transform: uppercase;
+                            font-size: 18;
+                            font-weight: bold;
+                            letter-spacing: 0.1em; /* пробелы между символами */
+                            margin-bottom: 10px;
+                        }
+                        
+                        .info__text { /* текст под заголовком */
+                            font-size: 18px;
+                            color: #B7B7B7;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Что получается пока: <br>
+                <a href="Cite.txt" target="_blank" download="">САЙТ</a> <br>
+                <a href="style.txt" target="_blank" download="">CSS</a>
+            </li>
+            <li>
+                Секции с контентом:
+                <pre>
+                    <p class="OBVODKA">
+        &#60;section class="section">
+        &#60;div class="container">
+            &#60;h2 class="block__title">
+                our services
+            &#60;/h2>
+            &#60;a href="#" class="block__link">
+                VIEW ALL SERVICES
+            &#60;/a>
+            &#60;div class="wrapper">
+                &#60;div class="block">
+                    &#60;a href="#" class="services__item">
+                        &#60;div class="services__content" style="background-image: url('image/keyB.jpg');">
+                            &#60;div class="services__content-item">
+                                &#60;div class="services__img">
+                                    &#60;img src="image/plus.png" alt="">
+                                &#60;/div>
+                                &#60;p class="services__text">
+                                    ANNUAL CHECKUPS FROM YOUR PHYSICIAN KEEP YOU IN GOOD HEALTH 
+                                &#60;/p>
+                            &#60;/div>
+                            &#60;/div>
+                        &#60;h3 class="services__title">
+                            diagnostic
+                        &#60;/h3>
+                    &#60;/a>
+                &#60;/div>
+                &#60;div class="block">
+                    &#60;a href="#" class="services__item">
+                        &#60;div class="services__content" style="background-image: url('image/wheel1.avif');">
+                            &#60;div class="services__content-item">
+                                &#60;div class="services__img">
+                                    &#60;img src="image/plus.png" alt="">
+                                &#60;/div>
+                                &#60;p class="services__text">
+                                    ANNUAL CHECKUPS FROM YOUR PHYSICIAN KEEP YOU IN GOOD HEALTH 
+                                &#60;/p>
+                            &#60;/div>
+                            &#60;/div>
+                        &#60;h3 class="services__title">
+                            TIRES & WHEELS
+                        &#60;/h3>
+                    &#60;/a>
+                &#60;/div>
+                &#60;div class="block">
+                    &#60;a href="#" class="services__item">
+                        &#60;div class="services__content" style="background-image: url('image/car.avif');">
+                            &#60;div class="services__content-item">
+                                &#60;div class="services__img">
+                                    &#60;img src="image/plus.png" alt="">
+                                &#60;/div>
+                                &#60;p class="services__text">
+                                    ANNUAL CHECKUPS FROM YOUR PHYSICIAN KEEP YOU IN GOOD HEALTH 
+                                &#60;/p>
+                            &#60;/div>
+                            &#60;/div>
+                        &#60;h3 class="services__title">
+                            ENGINES
+                        &#60;/h3>
+                    &#60;/a>
+                &#60;/div>
+            &#60;/div>
+        &#60;/div>
+    &#60;/section>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                <p class="Alarm">Я заменил &#60;info__wrapper> и &#60;info__block> на просто wrapper и block</p> <br>
+                т.к они потом повторяются, вот CSS:
+                <pre>
+                    <p class="OBVODKA">
+                        .wrapper {
+                            display: flex;
+                            margin: 0 -10px;
+                        }
+                        
+                        .block {
+                            width: 33.33%;
+                            padding: 0 10px; /* padding И margin должны совпадать!!!*/
+                        }
+                    </p>
+                </pre>
+                <p>То же самое только имя другое</p>
+            </li>
+            <li>
+                Да это жестко (CSS):
+                <pre>
+                    <p class="OBVODKA">
+                        .services__item {
+                            text-decoration: none; / это убрать ссылочное подчеркивание хз, почему нельзя именно у заголовка убрать
+                        }
+                        
+                        .services__item:hover .services__content-item { /* при наведении плюс и круг стануцт видимыми, а .services__content-item это где opacity меняем*/
+                            opacity: 1;
+                        }
+                        
+                        .services__item:hover .services__content::after {
+                            opacity: .7;
+                        }
+                        
+                        .services__content { /* текст внутри */
+                            height: 500px;
+                            margin-bottom: 20px;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            position: relative; /* позиционируется в соответствии с нормальным потоком документа */
+                        }
+                        
+                        .services__content::after { /* текст внутри */
+                            height: 100%;
+                            width: 100%;
+                            background-color: black;
+                            opacity: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            content: '';
+                            transition: 0.2s ease;
+                        }
+                        
+                        .services__content-item { /* чтобы пропал текст и картики плюса и круг */
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            z-index: 2;
+                            transition: 0.2s ease;
+                        }
+                        
+                        .services__img { /* задний фон, картинка и рисуем кружок */
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                        
+                            display: flex; /* выравнивание плюса*/
+                            align-items: center;
+                            justify-content: center;
+                        
+                            background-color: #DB2512;
+                            position: absolute; /* выравнивание рисунка, а не того что в нем */
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                        
+                        .services__img img {
+                            height: 30px;
+                        }
+                        
+                        .services__title {
+                            color: black;
+                            text-transform: uppercase;
+                            font-size: 20px;
+                            font-weight: 600;
+                            letter-spacing: 0.15em;
+                        }
+                        
+                        .services__text {
+                            max-width: 250px;
+                        
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: #fff;
+                            letter-spacing: 0.15em;
+                        
+                            position: absolute; /* слева снизу */
+                            left: 30px;
+                            bottom: 20px;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                <p class="Alarm">Shift+ALT+F</p> Чтобы код не уходил в првый край, скелет about:
+                <pre>
+                    <p class="OBVODKA">
+    &#60;section class="about">
+        &#60;div class="container">
+            &#60;div class="about__wrapper">
+                &#60;div class="about__block">
+                    &#60;h2 class="block__title text-white"> &#60;!-- берем из предыдущего т.к они аналогичны -->
+                        WE UNDERSTAND HOW IMPORTANT IT IS TO FIND THE RIGHT AUTO SERVICE
+                    &#60;/h2>
+                    &#60;p class="about__text">
+                        Car repairs and maintenance can be expensive and no one wants to have pay to repair damage
+                        caused by shoddy repair service. When you bring your car into our auto shop, you won’t have to
+                        worry because our staff is comprised of ASE certified technicians who are committed to making
+                        sure you have a safe dependable car.
+                    &#60;/p>
+                    &#60;a href="#" class="about__link">
+                        MORE ABOUT US
+                    &#60;/a>
+                &#60;/div>
+                &#60;!-- about__block -->
+                &#60;img src="image/repair.jpg" alt="" class="about__img">
+            &#60;/div>
+            &#60;!-- about__wrapper -->
+        &#60;/div>
+        &#60;!-- container -->
+    &#60;/section>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                CSS about с подробным описанием:
+                <pre>
+                    <p class="OBVODKA">
+                        .about{
+                            padding: 115px 0; /* (1арг отступы сверху и снизу) (2арг слева и справо)*/
+                            background-color: #171616; /* будет заметно после вот этого!!! */
+                        }
+                        .about__wrapper{ /* блочная структура */
+                            display: flex; /* связь между эл. в горизонт. проэкции*/
+                            align-items: center; /* Флексы выравниваются по линии поперечной оси. */
+                            justify-content: space-between; /* отступы между эл. */
+                        }
+                        .about__block{
+                            max-width: 505px;
+                        }
+                        
+                        .about__text{
+                            margin: 40px 0px; /* отступ в block__title 15px не будет учитываться*/
+                            font-weight: 600;  /* margin: 1ар 2ар 3ар 4ар (сверху) (справо) (снизу) (слева)*/
+                            color: #B7B7B7;
+                            line-height: 22.5px;
+                            letter-spacing: 0.23em;
+                        }
+                        
+                        .about__link{
+                            color: #fff;
+                            font-size: 18px;
+                            font-weight: 500;
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                        }
+                        
+                        .about__link:hover{
+                            text-decoration: none;
+                        }
+                        
+                        .about__img{
+                            height: 340px;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                <p class="Alarm">Насчет второго класса "block__title text-white"</p>
+                <pre>
+                    <p class="OBVODKA">
+                        .block__title.text-white{
+                            color: #fff;
+                            letter-spacing: 0.15em;
+                            line-height: 45px; /* интервал между строчками !!!!*/
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Дорисываем about класс section
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;section class="section about"></section>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Скелет секции:
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;section class="section process"> &#60;!-- это для внутреннего отступа -->
+                        &#60;div class="container">
+                            &#60;h2 class="process__title">FAST & EASY&#60;/h2>
+                            &#60;h3 class="process_subtitle">our work process&#60;/h3>
+                
+                            &#60;div class="wrapper">
+                                &#60;div class="block">
+                                    &#60;div class="process__item">
+                                        &#60;h4 class="info__title">1.Request your quote&#60;/h4>
+                                        &#60;p class="info__text">We will be there when you most need us&#60;/p>
+                                    &#60;/div>
+                                &#60;/div>
+                                &#60;div class="block">
+                                    &#60;div class="process__item">                      
+                                        &#60;h4 class="info__title">02. BRING YOUR VEHICLE&#60;/h4>
+                                        &#60;p class="info__text">We are car guys at heart&#60;/p>
+                                    &#60;/div>
+                                &#60;/div>
+                                &#60;div class="block">
+                                    &#60;div class="process__item">
+                                        &#60;h4 class="info__title">03. GET IT REPAIRED&#60;/h4>
+                                        &#60;p class="info__text">High quality, low cost car servicing&#60;/p>
+                                    &#60;/div>
+                                &#60;/div>
+                            &#60;/div>
+                        &#60;/div>
+                        &#60;!-- container -->
+                    &#60;/section>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Код CSS:
+                <pre>
+                    <p class="OBVODKA">
+                        .process__title{
+                            font-size: 148px;
+                            font-weight: 900;
+                            text-transform: uppercase;
+                            text-align: center;
+                            margin-bottom: 50px;
+                            line-height: 1;
+                        }
+                        .process_subtitle{
+                            margin-bottom: 90px;
+                            font-size: 40px;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            letter-spacing: 0.15em;
+                            text-align: center;
+                        }
+                        
+                        .process__item{
+                            background: #FFFFFF;
+                            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+                            padding: 30px 30px 15px;
+                            height: 100%;
+                            min-height: 150px;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                <p class="Alarm">Важно ППЦ как!!</p> Меняем в CSS начало:
+                <pre>
+                    <p class="OBVODKA">
+                        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+
+                        *, *:before, *:after {
+                            box-sizing: border-box;
+                        }
+                        body {
+                            margin: 0;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 15px;
+                        }
+
+                        h1,h2,h3,h4,h5,h6 { /* убираем оступ у заголовков, defoult они есть */
+                            margin: 0;
+                        }
+
+                        p {
+                            margin: 0 0 5px;
+                        }
+
+                        .container {
+                            width: 1230px;
+                            padding: 0 15px;
+                            margin: 0 auto;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                <p class="Alarm">Вот что должно получиться на данном этапе: </p> <br>
+                <a href="Cite1.txt" target="_blank" download="">САЙТ</a> <br>
+                <a href="style1.txt" target="_blank" download="">CSS</a>
+            </li>
+            <li>
+                Footer код:
+                <pre>
+                    <p class="OBVODKA">
+                        &#60;footer class="footer">
+                        &#60;div class="container">
+                            &#60;div class="footer__wrapper">
+                                &#60;p class="copyright">
+                                    © 2021 Auto theme by Frontend Tricks
+                                &#60;/p>
+                                &#60;div class="footer__soc">
+                                    &#60;a href="" class="footer__soc-link">
+                                        &#60;img src="image/Vector.svg" alt="">
+                                    &#60;/a>
+                                    &#60;a href="" class="footer__soc-link">
+                                        &#60;img src="image/Vector (2).svg" alt="">
+                                    &#60;/a>
+                                    &#60;a href="" class="footer__soc-link">
+                                        &#60;img src="image/instagram (1) 1.svg" alt="">
+                                    &#60;/a>
+                                &#60;/div>
+                            &#60;/div>
+                        &#60;/div>
+                    &#60;/footer>
+                    </p>
+                </pre>
+            </li>
+            <li>
+                CSS Footer:
+                <pre>
+                    <p class="OBVODKA">
+                        .footer{
+
+                        }
+                        .footer__wrapper{
+                            height: 150px; /**/
+                            display: flex; /**/
+                            align-items: center; /**/
+                            justify-content: space-between; /* раскидать по сторонам */
+                        }
+                        .footer__soc{
+                            display: flex; /* Можно */
+                        }
+                        .footer__soc-link{
+                            text-decoration: none;
+                            margin-right: 20px;
+                        }
+                        .footer__soc-link:last-child{
+                            margin-right: 0;
+                        }
+                        .footer__soc-link img {
+                            height: 25px;
+                        }
+                        
+                        .copyright{
+                            letter-spacing: 0.15em;
+                        }
+                    </p>
+                </pre>
+            </li>
+            <li>
+                Так же в .btn были внесены изменеия:
+                <pre>
+                    <p class="OBVODKA">
+                        cursor: pointer; /* 2 but */
+                        outline: 0;      /* 2 but*/
+                        border: 0;       /* but*/
+                    </p>
+                </pre>
+            </li>
+            <li>
+                
+                <p class="Alarm">Вот итог, без мобильной версии: </p> <br>
+                <a href="Cite2.txt" target="_blank" download="">САЙТ</a> <br>
+                <a href="style2.txt" target="_blank" download="">CSS</a>
+            </li>
+            <li>
+
+                <pre>
+                    <p class="OBVODKA">
+
+                    </p>
+                </pre>
+            </li>
+            <li>
+
+                <pre>
+                    <p class="OBVODKA">
+
+                    </p>
+                </pre>
+            </li>
+            <li>
+
+                <pre>
+                    <p class="OBVODKA">
+
+                    </p>
+                </pre>
+            </li>
+            <li>
+
+                <pre>
+                    <p class="OBVODKA">
+
+                    </p>
+                </pre>
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>

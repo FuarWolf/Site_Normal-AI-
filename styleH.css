@@ -1,0 +1,20 @@
+.favicon {
+    white-space: normal;
+}
+
+.fav {
+    background-color: aqua;
+}
+
+.headerPRE {
+    white-space: pre-wrap;
+}
+
+.OBVODKA {
+    border: 2px solid violet;
+}
+
+.Alarm {
+    font-size: large;
+    color: red;
+}

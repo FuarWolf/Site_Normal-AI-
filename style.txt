@@ -1,0 +1,208 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 { /* убираем оступ у заголовков, defoult они есть */
+    margin: 0;
+}
+
+.body {
+    margin: 0; /* отступ от всех 4 сторон */
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-flex; /* все ссылки inline это строчный а это говно */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #DB2512;
+    min-width: 200px;
+    height: 50px;
+    padding: 0 10px; /* 0 отступ вврех, низ 10 лево, право */
+    transition: background-color .2s easy;
+}
+
+.btn:hover {
+    background-color: #c72e1d; /* бледнеет при наведении*/
+}
+
+/* ---- Header ---- */
+
+.nav__link {
+    margin-right: 35px; /* отступы между эл, но посл эл тоже делает отступ !!!*/
+    color: white;
+    text-transform: uppercase; /* магия с текстом, делает все буквы большими */
+    text-decoration: none; /* убирает подчеркивания */
+    font-weight: 600;
+    position: relative; /* !подчеркивание для всех ссылок! */
+}
+
+.nav__link:after { /* пoдчеркивания */
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0; /* от края до края */
+    content: '';
+    opacity: 0; /* !убираем подчерк всех ссылок! */
+    transition: opacity .2s ease; /* время подчеркивания */
+}
+
+.nav__link:last-child { /* убирает отступ справа, из предю пункта*/
+    margin-right: 0;
+}
+
+.nav__link:hover:after { /* при наведении */
+    opacity: 1;
+}
+
+.nav__link.active:after { /* актив подчеркивается */
+    opacity: 1;
+}
+
+.nav {
+    display: flex;
+}
+
+.header__wrapped {
+    height: 120px;
+    align-items: center;
+    display: flex; /* все эл поровну разделят пространмтво где они находятся */
+    justify-content: space-between; /*чтобы эл разъехались по сторонам*/
+}
+
+.header__logo {
+    display: inline-block;
+}
+
+.header__logo img {
+    height: 120px;
+    width: 120px;
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+/* Языки */
+
+.header__lng { /* для всего блока */
+    display: flex;
+    justify-content: flex-end; /* по горизонтали справа */
+}
+
+.header__lng-link { /* для ссылок в нем */
+    margin-right: 8px;
+    color: #B7B7B7;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.header__lng-link:hover {
+    color: white;
+}
+
+.header__lng-link:last-child {
+    margin-right: 0;
+}
+
+.header__lng-link.active {
+    color: white;
+    text-decoration: double;
+}
+
+/* ---- Header END ----   */
+
+/* ---- Intro ---- */
+
+.intro {
+    background: url('image/site.webp') no-repeat; /* !!!!!!растягивать фон !!!!*/
+    background-size: cover;
+    position: relative;
+}
+
+.intro__content {
+    height: 1024px;
+    display: flex;
+    align-items: center;
+    z-index: 2; /* приоритет отрисовки */
+}
+
+.intro__title {
+    max-width: 690px;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-bottom: 30px;
+} 
+
+/* ---- Intro END ---- */
+
+/* ---- Info ---- */
+
+.info {
+    transform: translateY(-50%); /*сдвиг на верх*/
+}
+
+.info__wrapper {
+    display: flex;
+    margin: 0 -10px;
+
+}
+
+.info__block {
+    width: 33.33%;
+    padding: 0 10px; /* padding И margin должны совпадать!!!*/
+
+}
+
+.info__item { /* обводка */
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); /* тень блока */
+    padding: 40px 40px 30px;
+}
+
+.info__img { 
+    margin-bottom: 20px; /* отступ снизу, т.е до нижних эл */
+}
+
+.info__img img { /* к самому изобр*/
+    height: 30px;
+}
+
+.info__title { /* заголовок */
+    text-transform: uppercase;
+    font-size: 18;
+    font-weight: bold;
+    letter-spacing: 0.1em; /* пробелы между символами */
+    margin-bottom: 10px;
+}
+
+.info__text { /* текст под заголовком */
+    font-size: 18px;
+    color: #B7B7B7;
+}

@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+h1,h2,h3,h4,h5,h6 { /* убираем оступ у заголовков, defoult они есть */
+    margin: 0;
+}
+
+p {
+    margin: 0 0 5px;
+}
+
+.container {
+    width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-flex; /* все ссылки inline это строчный а это говно */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #DB2512;
+    min-width: 200px;
+    height: 50px;
+    padding: 0 10px; /* 0 отступ вврех, низ 10 лево, право */
+    transition: background-color .2s easy;
+    cursor: pointer; /* 2 but */
+    outline: 0;      /* 2 but*/
+    border: 0;       /* but*/
+}
+
+.btn:hover {
+    background-color: #c72e1d; /* бледнеет при наведении*/
+}
+
+/* ---- Header ---- */
+
+.nav__link {
+    margin-right: 35px; /* отступы между эл, но посл эл тоже делает отступ !!!*/
+    color: white;
+    text-transform: uppercase; /* магия с текстом, делает все буквы большими */
+    text-decoration: none; /* убирает подчеркивания */
+    font-weight: 600;
+    position: relative; /* !подчеркивание для всех ссылок! */
+}
+
+.nav__link:after { /* пoдчеркивания */
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0; /* от края до края */
+    content: '';
+    opacity: 0; /* !убираем подчерк всех ссылок! */
+    transition: opacity .2s ease; /* время подчеркивания */
+}
+
+.nav__link:last-child { /* убирает отступ справа, из предю пункта*/
+    margin-right: 0;
+}
+
+.nav__link:hover:after { /* при наведении */
+    opacity: 1;
+}
+
+.nav__link.active:after { /* актив подчеркивается */
+    opacity: 1;
+}
+
+.nav {
+    display: flex;
+}
+
+.header__wrapped {
+    height: 120px;
+    align-items: center;
+    display: flex; /* все эл поровну разделят пространмтво где они находятся */
+    justify-content: space-between; /*чтобы эл разъехались по сторонам*/
+}
+
+.header__logo {
+    display: inline-block;
+}
+
+.header__logo img {
+    height: 120px;
+    width: 120px;
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+/* Языки */
+
+.header__lng { /* для всего блока */
+    display: flex;
+    justify-content: flex-end; /* по горизонтали справа */
+}
+
+.header__lng-link { /* для ссылок в нем */
+    margin-right: 8px;
+    color: #B7B7B7;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.header__lng-link:hover {
+    color: white;
+}
+
+.header__lng-link:last-child {
+    margin-right: 0;
+}
+
+.header__lng-link.active {
+    color: white;
+    text-decoration: double;
+}
+
+/* ---- Header END ----   */
+
+/* ---- Intro ---- */
+
+.intro {
+    background: url('image/site.webp') no-repeat; /* !!!!!!растягивать фон !!!!*/
+    background-size: cover;
+    position: relative;
+}
+
+.intro__content {
+    height: 1024px;
+    display: flex;
+    align-items: center;
+    z-index: 2; /* приоритет отрисовки */
+}
+
+.intro__title {
+    max-width: 690px;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-bottom: 30px;
+} 
+
+/* ---- Intro END ---- */
+
+/* ----Section ----*/
+.section{
+    margin-bottom: 100px;
+}
+
+.section.process{
+    padding-top: 50px;
+}
+
+.block__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 30px;
+    letter-spacing: 0.1em;
+}
+
+.block__link {
+    margin-bottom: 60px;
+    display: inline-block; /* Важно!! <a> это блочный эл. его надо перевести строковый */
+    letter-spacing: 0.1em; /* блочный т.е он растянется на всю длину сайта */
+    color: #000;
+}
+
+.block__link:hover {
+    text-decoration: none; /*убрать полоску снизу, для визуала*/
+}
+
+.block__title.text-white{
+    color: #fff;
+    letter-spacing: 0.15em;
+    line-height: 45px; /* интервал между строчками !!!!*/
+}
+
+.wrapper {
+    display: flex;
+    margin: 0 -10px;
+}
+
+.block {
+    width: 33.33%;
+    padding: 0 10px; /* padding И margin должны совпадать!!!*/
+}
+
+.text-upper{
+    text-transform: uppercase;
+}
+
+/* ---- Section END ---- */
+
+/* ---- Sevices start ---- */
+
+.services__item {
+    text-decoration: none;
+}
+
+.services__item:hover .services__content-item { /* при наведении плюс и круг стануцт видимыми, а .services__content-item это где opacity меняем*/
+    opacity: 1;
+}
+
+.services__item:hover .services__content::after {
+    opacity: .7;
+}
+
+.services__content { /* текст внутри */
+    height: 500px;
+    margin-bottom: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /* позиционируется в соответствии с нормальным потоком документа */
+}
+
+.services__content::after { /* текст внутри */
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    transition: 0.2s ease;
+}
+
+.services__content-item { /* чтобы пропал текст и картики плюса и круг */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    transition: 0.2s ease;
+}
+
+.services__img { /* задний фон, картинка и рисуем кружок */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    display: flex; /* выравнивание плюса*/
+    align-items: center;
+    justify-content: center;
+
+    background-color: #DB2512;
+    position: absolute; /* выравнивание рисунка, а не того что в нем */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.services__img img {
+    height: 30px;
+}
+
+.services__title {
+    color: black;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+}
+
+.services__text {
+    max-width: 250px;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.15em;
+
+    position: absolute; /* слева снизу */
+    left: 30px;
+    bottom: 20px;
+}
+
+
+
+/* ---- Sevices start END ---- */
+
+/* ---- About ---- */
+
+.about{
+    padding: 115px 0; /* (1арг отступы сверху и снизу) (2арг слева и справо)*/
+    background-color: #171616; /* будет заметно после вот этого!!! */
+}
+.about__wrapper{ /* блочная структура */
+    display: flex; /* связь между эл. в горизонт. проэкции*/
+    align-items: center; /* Флексы выравниваются по линии поперечной оси. */
+    justify-content: space-between; /* отступы между эл. */
+}
+.about__block{
+    max-width: 505px;
+}
+
+.about__text{
+    margin: 40px 0px; /* отступ в block__title 15px не будет учитываться*/
+    font-weight: 600;  /* margin: 1ар 2ар 3ар 4ар (сверху) (справо) (снизу) (слева)*/
+    color: #B7B7B7;
+    line-height: 22.5px;
+    letter-spacing: 0.23em;
+}
+
+.about__link{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.about__link:hover{
+    text-decoration: none;
+}
+
+.about__img{
+    height: 340px;
+}
+
+/* ---- About END ---- */
+
+/* ---- Process ---- */
+
+.process__title{
+    font-size: 148px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1;
+}
+.process_subtitle{
+    margin-bottom: 90px;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+.process__item{
+    background: #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    padding: 30px 30px 15px;
+    height: 100%;
+    min-height: 150px;
+}
+
+/* ---- Process END ---- */
+
+/* ---- Contacts ---- */
+
+.contacts{
+    padding: 100px 0; /* отступ сверху и снизу */
+    background-color: #171616;
+}
+
+.contacts .block__title{
+    margin-bottom: 40px; /* для отступа у contacts с формой */
+}
+
+.contacts__form{
+    max-width: 440px; /* ограничиваем форму по длине */
+}
+.form__row{
+    margin: 0 -20px;
+    display: flex; /* будут два по два не 4 в одну колонку */
+}
+.form__group{
+    margin-bottom: 30px; /* отступ между группами вниз */ 
+    padding: 0 20px;
+    flex: 1; /* чтобы они распределились на всю длину */
+    position: relative;
+}
+
+.input{ /* у всех input есть выделение при нажатии (outline), так же нало указывать весь font */
+    width: 100%; /* Обязательно!!! */
+    padding: 6px 0;
+    color: #fff;
+    font-size: 15px;
+    /* font-family: 'Popins', sans-serif;    Можно и тка но лучше*/ 
+    font-family: inherit; /* от родителя */
+    outline: 0; /* убираем */
+    border: 0; /* убираем все границы кроме нижней */
+    border-bottom: 1px solid #fff;
+    background-color: transparent; /* в черный */
+}
+
+.input:focus + label { /* принажатии на лабел, так-же label ДО input !!!! */
+    transform: translateY(-24px); /* сместится вверх на 10px, т.к 0,0 это левый верхний угол экрана */
+    font-style: 12px;
+}
+
+.input:not(:placeholder-shown) + .label {
+    transform: translateY(-24px); /* это для того чтобы лейбы не опускались когда в них что-то eсть */
+    font-style: 12px;
+}
+
+.label{
+    position: absolute;
+    left: 20px; /* из-за padding у form_group 20px*/
+    top: 10px;
+    letter-spacing: 0.15em;
+    color: #fff;
+    pointer-events: none; /* для пропука сквозь них кликов!!!! */
+    transition: all .2s ease;
+}
+
+.textarea{
+    min-height: 130px; /* это чтобы нельзя было уменьшить слишком сильно */
+    width: 100%; /* Обязательно!!! */
+    padding: 6px 0;
+    resize: vertical; /* можно менять размер по вертикали*/
+    color: #fff;
+    font-size: 15px;
+    /* font-family: 'Popins', sans-serif;    Можно и тка но лучше*/ 
+    font-family: inherit; /* от родителя */
+    outline: 0; /* убираем */
+    border: 0; /* убираем все границы кроме нижней */
+    border-bottom: 1px solid #fff;
+    background-color: transparent; /* в черный */
+}
+
+.textarea:focus + label { /* принажатии на лабел, так-же label ДО input !!!! */
+    transform: translateY(-24px); /* сместится вверх на 10px, т.к 0,0 это левый верхний угол экрана */
+    font-style: 12px;
+}
+
+.textarea:not(:placeholder-shown) + .label {
+    transform: translateY(-24px); /* это для того чтобы лейбы не опускались когда в них что-то eсть */
+    font-style: 12px;
+}
+
+/* ---- Contacts END ---- */
+
+/* ---- Footer ---- */
+
+.footer{
+
+}
+.footer__wrapper{
+    height: 150px; /**/
+    display: flex; /**/
+    align-items: center; /**/
+    justify-content: space-between; /* раскидать по сторонам */
+}
+.footer__soc{
+    display: flex; /* Можно */
+}
+.footer__soc-link{
+    text-decoration: none;
+    margin-right: 20px;
+}
+.footer__soc-link:last-child{
+    margin-right: 0;
+}
+.footer__soc-link img {
+    height: 25px;
+}
+
+.copyright{
+    letter-spacing: 0.15em;
+}
+
+/* ---- Footer END ---- */
+
+/* ---- Info ---- */
+
+.info {
+    transform: translateY(-50%); /*сдвиг на верх*/
+}
+
+.info__item { /* обводка */
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); /* тень блока */
+    padding: 40px 40px 30px;
+}
+
+.info__img { 
+    margin-bottom: 20px; /* отступ снизу, т.е до нижних эл */
+}
+
+.info__img img { /* к самому изобр*/
+    height: 30px;
+}
+
+.info__title { /* заголовок */
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.15em; /* пробелы между символами */
+    margin-bottom: 10px;
+    line-height: 27px;
+}
+
+.info__text { /* текст под заголовком */
+    font-size: 18px;
+    color: #B7B7B7;
+}
